@@ -1,0 +1,55 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Algorithm Animation</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <header>
+        <button id="bubbleSortBtn">Bubble Sort</button>
+        <button id="shellSortBtn">Shell Sort</button>
+        <button id="insertionSort">Insertion Sort</button>
+        <button id="selectionSort">Selection Sort</button>
+    </header>
+
+    <h1>Operaciones: <span id="operations">0</span></h1>    
+
+    <p>
+        Ordenamiento de productos por precio. Selecciona un algoritmo de ordenamiento y observa cómo se reorganizan los productos.
+    </p>
+
+    <div class="container" id="container">
+        <div class="box" style="--bg-color: #FF5733;" data-value="50">$ 50 MXN</div> <!-- Rojo -->
+        <div class="box" style="--bg-color: #FFC300;" data-value="30">$ 30 MXN</div> <!-- Naranja -->
+        <div class="box" style="--bg-color: #DAF7A6;" data-value="80">$ 80 MXN</div> <!-- Amarillo -->
+        <div class="box" style="--bg-color: #28a745;" data-value="60">$ 60 MXN</div> <!-- Verde -->
+        <div class="box" style="--bg-color: #007bff;" data-value="40">$ 40 MXN</div> <!-- Azul -->
+        <div class="box" style="--bg-color: #6610f2;" data-value="70">$ 70 MXN</div> <!-- Índigo -->
+        <div class="box" style="--bg-color: #a3227c;" data-value="20">$ 20 MXN</div> <!-- Violeta -->
+        
+    </div>
+
+    <footer>
+        <button id="shuffleBtn">Desordenar</button>
+    </footer>
+
+    <script type="module">
+        import { bubbleSort, shellSort, insertionSort, selectionSort, shuffleBoxes, startSorting } from './script.js';
+
+        const $add = (id, event) => document.getElementById(id).addEventListener('click', event);
+
+        $add('bubbleSortBtn', () => startSorting(bubbleSort));
+        $add('shellSortBtn', () => startSorting(shellSort));
+        $add('insertionSort', () => startSorting(insertionSort));
+        $add('selectionSort', () => startSorting(selectionSort));
+        $add('shuffleBtn', shuffleBoxes);
+    </script>
+</body>
+
+</html>
